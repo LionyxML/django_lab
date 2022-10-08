@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class hero(models.Model):
+class Hero(models.Model):
     name = models.CharField(max_length=60)
     alias = models.CharField(max_length=60)
 
