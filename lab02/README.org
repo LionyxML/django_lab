@@ -1,0 +1,21 @@
+* Django JWT Authentication
+
+*** Install
+Clone this repo / folder.
+
+Create a venv and activate it with:
+#+BEGIN_SRC shell
+  python3 -m venv venv
+  source venv/bin/activate
+#+END_SRC
+
+Install with:
+#+BEGIN_SRC shell
+  pip3 install -r requirements.txt
+#+END_SRC
+
+
+
+
+
+
