@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import View
+from django.contrib.auth.views import LoginView
 
-from .forms import RegisterForm
+from .forms import RegisterForm, LoginForm
 
 
 def home(request):
@@ -30,3 +31,21 @@ class RegisterView(View):
             return redirect(to="/")
 
         return render(request, self.template_name, {"form": form})
+
+
+class CustomLoginView(LoginView):
+    """class based view that extends the built in login view
+    to add the remember functionality"""
+
+    form_class = LoginForm
+
+    def form_valid(self, form):
+        remember_me = form.cleaned_data.get("remember_me")
+
+        if not remember_me:
+            # set session expiry to 0 seconds, so the session is automatically closed with browser
+            self.request.session.set_expiry(0)
+
+            self.request.session.modified = True
+
+        return super(CustomLoginView, self).form_valid(form)
