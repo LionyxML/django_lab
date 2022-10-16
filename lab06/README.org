@@ -1,3 +1,8 @@
 # User Management
 
 A classic take on Django
+
+
+Continue from:
+https://dev.to/earthcomfy/django-social-authentication-imk
+

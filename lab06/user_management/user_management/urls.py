@@ -30,8 +30,8 @@ urlpatterns = [
             redirect_authenticated_user=True,
             template_name="users/login.html",
             authentication_form=LoginForm,
-            name="login",
         ),
+        name="login",
     ),
     path(
         "logout/",

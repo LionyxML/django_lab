@@ -28,9 +28,17 @@ class RegisterView(View):
             username = form.cleaned_data.get("username")
             messages.success(request, f"Account created for {username}")
 
-            return redirect(to="/")
+            return redirect(to="login")
 
         return render(request, self.template_name, {"form": form})
+
+    def dispatch(self, request, *args, **kwargs):
+        # will redirect to the home page if a user tries to access the register page while logged in
+        if request.user.is_authenticated:
+            return redirect(to="/")
+
+        # else process dispatch as it otherwise normally would
+        return super(RegisterView, self).dispatch(request, *args, **kwargs)
 
 
 class CustomLoginView(LoginView):
