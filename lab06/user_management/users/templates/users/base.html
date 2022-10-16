@@ -43,7 +43,22 @@
               </div>
             </div>
           </nav>
-          {% block content %}{% endblock %}
+          <!--Any flash messages pop up in any page because this is the base template-->
+          {% if messages %}
+          <div class="alert alert-dismissible" role="alert">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endif %} {% block content %}{% endblock %}
         </div>
       </div>
     </div>
@@ -64,5 +79,8 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+
+    <!-- A plugin for password show/hide  -->
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
   </body>
 </html>
