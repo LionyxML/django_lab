@@ -20,7 +20,6 @@ from django.contrib.auth import views as auth_views
 from users.views import CustomLoginView
 from users.forms import LoginForm
 
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("users.urls")),
@@ -38,4 +37,5 @@ urlpatterns = [
         auth_views.LogoutView.as_view(template_name="users/logout.html"),
         name="logout",
     ),
+    path("oauth/", include("social_django.urls", namespace="social")),
 ]
