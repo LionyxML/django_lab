@@ -7,6 +7,7 @@ defusedxml==0.7.1
 Django==4.1.2
 idna==3.4
 oauthlib==3.2.2
+Pillow==9.2.0
 pycparser==2.21
 PyJWT==2.5.0
 python-dotenv==0.21.0

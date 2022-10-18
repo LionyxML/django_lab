@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import View
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.decorators import login_required
+
 
 from .forms import RegisterForm, LoginForm
 
@@ -57,3 +59,8 @@ class CustomLoginView(LoginView):
             self.request.session.modified = True
 
         return super(CustomLoginView, self).form_valid(form)
+
+
+@login_required
+def profile(request):
+    return render(request, "users/profile.html")
