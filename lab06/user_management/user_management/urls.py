@@ -20,6 +20,9 @@ from django.contrib.auth import views as auth_views
 from users.views import CustomLoginView
 from users.forms import LoginForm
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("users.urls")),
@@ -38,4 +41,4 @@ urlpatterns = [
         name="logout",
     ),
     path("oauth/", include("social_django.urls", namespace="social")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

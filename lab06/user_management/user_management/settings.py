@@ -144,6 +144,7 @@ AUTHENTICATION_BACKENDS = (
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv("SECRET_KEY"))
 
+
 # social auth configs for github
 SOCIAL_AUTH_GITHUB_KEY = str(os.getenv("GITHUB_KEY"))
 SOCIAL_AUTH_GITHUB_SECRET = str(os.getenv("GITHUB_SECRET"))
@@ -151,3 +152,7 @@ SOCIAL_AUTH_GITHUB_SECRET = str(os.getenv("GITHUB_SECRET"))
 # social auth configs for google
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = str(os.getenv("GOOGLE_KEY"))
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = str(os.getenv("GOOGLE_SECRET"))
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
