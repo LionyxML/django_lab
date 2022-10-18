@@ -1,8 +1,34 @@
 # User Management
 
-A classic take on Django
+A classic take on Django User Admin.
+
+To install, clone this repo and inside its root folder:
+#+BEGIN_SRC bash
+  python3 -m venv venv
+  source .venv/bin/activate
+  cd user_management
+  cp .env_example .env
+  pip install -r requirements.txt
+  python manage.py migrate
+  python manage.py createsuperuser
+  python manage.py runserver
+#+END_SRC
+
+Access the app on:
+[[http://localhost:8000]]
+
+And the admin page on:
+[[http://localhost:8000/admin]]
+
+To make social login work, follow the oAuth2 examples from Github and
+Google Cloud docs and change your .env entries.
 
 
-Continue from:
-https://dev.to/earthcomfy/django-social-authentication-imk
+TODO:
+- [ ] Continue from: https://dev.to/earthcomfy/django-update-user-profile-33ho
+- [ ] Docker file
+- [ ] Docker compose file
+
+
+
 
