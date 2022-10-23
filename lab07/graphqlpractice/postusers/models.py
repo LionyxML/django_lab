@@ -9,11 +9,11 @@ class Author(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(maxlength=100)
+    title = models.CharField(max_length=100)
     body = models.TextField()
     author = models.ForeignKey(
-        Author, relatedname="posts", on_delete=models.CASCADE
+        Author, related_name="posts", on_delete=models.CASCADE
     )
 
-    def str(self):
+    def __str__(self):
         return self.title
